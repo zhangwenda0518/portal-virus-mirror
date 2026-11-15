@@ -34,12 +34,31 @@ _RUNS_HEADER = ["tax_id", "virus", "family", "genus", "acc", "side",
 
 
 def _fetch_remote(fname, cache_dir):
-    url = f"{DEFAULT_REPO_RAW}/data/{fname}" if not DEFAULT_REPO_RAW.endswith("/data") \
-        else f"{DEFAULT_REPO_RAW}/{fname}"
-    print(f"  (fetch {fname} ...)", file=sys.stderr)
-    req = urllib.request.Request(url, headers={"User-Agent": "portal-query"})
-    with urllib.request.urlopen(req, timeout=600) as r:
-        data = r.read()
+    """raw 优先, 失败回退 api.github.com contents (raw 被墙时仍可用)。"""
+    base = DEFAULT_REPO_RAW.rstrip("/")
+    urls = [
+        f"{base}/data/{fname}" if not base.endswith("/data") else f"{base}/{fname}",
+        "https://api.github.com/repos/zhangwenda0518/portal-virus-mirror"
+        "/contents/data/" + fname,
+    ]
+    data = None
+    for i, url in enumerate(urls):
+        try:
+            chan = "raw" if i == 0 else "api.github.com"
+            print(f"  (fetch {fname} via {chan} ...)", file=sys.stderr)
+            headers = {"User-Agent": "portal-query"}
+            if "api.github.com" in url:
+                headers["Accept"] = "application/vnd.github.raw"
+            req = urllib.request.Request(url, headers=headers)
+            with urllib.request.urlopen(req, timeout=600) as r:
+                d = r.read()
+            if len(d) > 100:
+                data = d
+                break
+        except Exception as e:
+            print(f"    ({type(e).__name__}, next channel)", file=sys.stderr)
+    if data is None:
+        raise RuntimeError(f"all download channels failed for {fname}")
     os.makedirs(cache_dir, exist_ok=True)
     tmp = os.path.join(cache_dir, fname + ".tmp")
     with open(tmp, "wb") as f:
