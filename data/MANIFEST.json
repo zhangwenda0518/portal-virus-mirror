@@ -1,0 +1,90 @@
+{
+  "source": "http://39.106.101.94/sra/",
+  "built_at": "2026-11-16 03:22:33",
+  "row_counts": {
+    "viruses_species": 1171107
+  },
+  "files": {
+    "MANIFEST.json": {
+      "bytes": 1665
+    },
+    "board_insect.json": {
+      "bytes": 381584
+    },
+    "board_plant.json": {
+      "bytes": 320528
+    },
+    "candidates_insect_A.csv.gz": {
+      "bytes": 83472
+    },
+    "candidates_insect_B.csv.gz": {
+      "bytes": 323348
+    },
+    "candidates_insect_C.csv.gz": {
+      "bytes": 735064
+    },
+    "candidates_insect_D.csv.gz": {
+      "bytes": 255453
+    },
+    "candidates_insect_E.csv.gz": {
+      "bytes": 271388
+    },
+    "candidates_plant_A.csv.gz": {
+      "bytes": 151235
+    },
+    "candidates_plant_B.csv.gz": {
+      "bytes": 2743487
+    },
+    "candidates_plant_C.csv.gz": {
+      "bytes": 5837579
+    },
+    "candidates_plant_D.csv.gz": {
+      "bytes": 510264
+    },
+    "candidates_plant_E.csv.gz": {
+      "bytes": 1549398
+    },
+    "graph_insect.json": {
+      "bytes": 327005
+    },
+    "graph_plant.json": {
+      "bytes": 648493
+    },
+    "runs_species.csv.gz": {
+      "bytes": 12196061
+    },
+    "sankey_insect.json": {
+      "bytes": 619080
+    },
+    "sankey_plant.json": {
+      "bytes": 1612020
+    },
+    "summary.json": {
+      "bytes": 1916
+    },
+    "triple_insect.json": {
+      "bytes": 1217979
+    },
+    "triple_plant.json": {
+      "bytes": 1864135
+    },
+    "viruses_family.csv.gz": {
+      "bytes": 1618
+    },
+    "viruses_family.json": {
+      "bytes": 11836
+    },
+    "viruses_genus.csv.gz": {
+      "bytes": 7737
+    },
+    "viruses_genus.json": {
+      "bytes": 73323
+    },
+    "viruses_species.csv.gz": {
+      "bytes": 118761
+    },
+    "viruses_species.json": {
+      "bytes": 1367147
+    }
+  }
+}
