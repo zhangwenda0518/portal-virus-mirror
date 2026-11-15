@@ -1,12 +1,12 @@
 {
   "source": "http://39.106.101.94/sra/",
-  "built_at": "2026-11-16 03:22:33",
+  "built_at": "2026-11-15 19:58:46",
   "row_counts": {
     "viruses_species": 1171107
   },
   "files": {
     "MANIFEST.json": {
-      "bytes": 1665
+      "bytes": 1757
     },
     "board_insect.json": {
       "bytes": 381584
@@ -51,7 +51,7 @@
       "bytes": 648493
     },
     "runs_species.csv.gz": {
-      "bytes": 12196061
+      "bytes": 12195841
     },
     "sankey_insect.json": {
       "bytes": 619080
